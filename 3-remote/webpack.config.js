@@ -39,7 +39,7 @@ module.exports = {
       name: "remote3",
       filename: "remoteEntry.js",
       exposes: {
-        "Button": "./src/Button",
+        "Button/Button/SomeButton": "./src/Button",
       },
       shared: {
         ...dependencies,
