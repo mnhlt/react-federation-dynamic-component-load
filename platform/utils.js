@@ -11,3 +11,13 @@ export function loadComponent(scope, module) {
         return Module;
     };
 }
+
+export function checkIfEntryLoaded(url) {
+    const scripts = document.querySelectorAll("script");
+    for (let i = 0; i < scripts.length; i++) {
+        if (scripts[i].src === url) {
+            return true;
+        }
+    }
+    return false;
+}

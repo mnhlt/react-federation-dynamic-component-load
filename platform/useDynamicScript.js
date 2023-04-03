@@ -1,10 +1,19 @@
 import React from "react";
+import {checkIfEntryLoaded} from "./utils";
+
+
 const useDynamicScript = (args) => {
     const [ready, setReady] = React.useState(false);
     const [failed, setFailed] = React.useState(false);
 
     React.useEffect(() => {
         if (!args.url) {
+            return;
+        }
+
+        if (checkIfEntryLoaded(args.url)) {
+            setReady(true);
+            setFailed(false);
             return;
         }
 
