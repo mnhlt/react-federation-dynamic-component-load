@@ -26,6 +26,7 @@ fs.readdirSync(root).forEach(function (subDir) {
   // install dependencies
 
   cp.spawnSync(npmCmd, ['ci'], { env: process.env, cwd: subDirPath, stdio: 'inherit' });
+  cp.spawnSync('cp', ['-R', `${root}/platform`, `${subDirPath}/src`], { env: process.env, cwd: subDirPath, stdio: 'inherit' });
 });
 
 // Running the apps
